@@ -1,6 +1,8 @@
 "use client";
 
 
+import Footer from "@/common/layouts/Footer";
+import Navbar from "@/common/layouts/Navbar";
 import { ReactNode } from "react";
 interface LayoutProps {
   children: ReactNode;
