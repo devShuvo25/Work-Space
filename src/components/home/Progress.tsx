@@ -1,8 +1,8 @@
 "use client"
 
-import React from "react"
-import { motion, Variants } from "framer-motion"
-import { CheckCircle2, Play } from "lucide-react"
+import React, { useState } from "react"
+import { motion, Variants, AnimatePresence } from "framer-motion"
+import { CheckCircle2, Play, X } from "lucide-react"
 import Image from "next/image"
 
 const FEATURES = [
@@ -24,19 +24,14 @@ const FEATURES = [
   },
 ]
 
-// Variants for the container to orchestrate children
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
+    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
   },
 }
 
-// Variants for individual list items
 const itemVariants: Variants = {
   hidden: { opacity: 0, x: -30 },
   visible: { 
@@ -47,6 +42,8 @@ const itemVariants: Variants = {
 }
 
 export default function ValueProps() {
+  const [isPlaying, setIsPlaying] = useState(false)
+
   return (
     <section className="py-24 bg-[#F1F3F4] overflow-hidden">
       <div className="container mx-auto px-6">
@@ -61,10 +58,10 @@ export default function ValueProps() {
           >
             <motion.h2 
               variants={itemVariants}
-              className="text-4xl md:text-5xl font-bold text-slate-900 mb-12 leading-[1.15]"
+              className="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 mb-12 leading-[1.1]"
             >
               A whole world of freelance <br /> 
-              talent at your <span className="text-[#1DBF73]">fingertips</span>
+              talent at your <span className="text-[#FF5B5B] italic">fingertips</span>
             </motion.h2>
 
             <div className="space-y-6">
@@ -91,36 +88,73 @@ export default function ValueProps() {
             </div>
           </motion.div>
 
-          {/* --- Right: Interactive Visual Asset --- */}
+          {/* --- Right: Video/Visual Asset --- */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.8, rotateY: 15 }}
-            whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            whileHover={{ scale: 1.02 }}
-            className="relative rounded-3xl overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] aspect-video bg-slate-900 group cursor-pointer"
+            className="relative rounded-[2.5rem] overflow-hidden shadow-2xl aspect-video bg-black group"
           >
-            {/* Animated Play Button Overlay */}
-            <div className="absolute inset-0 z-20 flex items-center justify-center">
-               <motion.div 
-                 whileHover={{ scale: 1.15 }}
-                 whileTap={{ scale: 0.95 }}
-                 className="w-24 h-24 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 transition-all group-hover:bg-[#1DBF73]/90 group-hover:border-transparent"
-               >
-                  <Play className="h-10 w-10 text-white fill-current ml-1" />
-               </motion.div>
-            </div>
+            <AnimatePresence mode="wait">
+              {!isPlaying ? (
+                <motion.div
+                  key="thumbnail"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="relative w-full h-full cursor-pointer"
+                  onClick={() => setIsPlaying(true)}
+                >
+                  {/* Play Button Overlay */}
+                  <div className="absolute inset-0 z-20 flex items-center justify-center">
+                    <motion.div 
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="w-20 h-20 md:w-24 md:h-24 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 group-hover:bg-[#1DBF73] transition-all"
+                    >
+                      <Play className="h-10 w-10 text-white fill-current ml-1" />
+                    </motion.div>
+                  </div>
 
-            {/* Background Image with Zoom Effect */}
-            <Image 
-              fill
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200" 
-              alt="Team collaborating" 
-              className="w-full h-full object-cover opacity-70 transition-transform duration-700 group-hover:scale-110"
-            />
-
-            {/* Gradient Overlay for depth */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  {/* Thumbnail Image */}
+                  <Image 
+                    fill
+                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200" 
+                    alt="Success Story Video" 
+                    className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="video"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="relative w-full h-full bg-black"
+                >
+                  {/* Video Element */}
+                  <video 
+                    autoPlay 
+                    controls 
+                    className="w-full h-full object-contain"
+                    onEnded={() => setIsPlaying(false)}
+                  >
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  
+                  {/* Close button to go back to thumbnail */}
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); setIsPlaying(false); }}
+                    className="absolute top-4 right-4 z-30 p-2 bg-black/50 hover:bg-black/80 rounded-full text-white transition-colors"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
 
         </div>
