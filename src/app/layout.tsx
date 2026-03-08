@@ -6,6 +6,7 @@ import ThemeProvider from "@/redux/provider/ThemeProvider";
 import Toast from "@/components/ui/Toast/Toast";
 import { cn } from "@/lib/utils";
 import { Providers } from "./provider";
+import FloatingChat from "@/common/components/FloatingChat";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -40,6 +41,7 @@ export default function RootLayout({
             <Toast/>
            {children}
           </ThemeProvider>
+          <FloatingChat/>
           </Providers>
         </ReduxProvider>
       </body>

@@ -127,7 +127,7 @@
   --popover-foreground: oklch(0.15 0.02 250);
 
   /* Brand Color: Trustworthy Indigo */
-  --primary: oklch(53.709% 0.19842 260.207);
+  --primary: #1DBF74;
   --primary-foreground: oklch(0.99 0.005 250);
 
   /* Soft slate for secondary actions */
@@ -138,9 +138,9 @@
   --muted-foreground: oklch(0.45 0.03 250);
 
   --accent: oklch(0.94 0.1 260 / 10%);
-  --accent-foreground: oklch(0.55 0.18 260);
+  --accent-foreground: #FFB719;
 
-  --destructive: oklch(0.6 0.18 25);
+  --destructive: #FE5857;
   --destructive-foreground: oklch(0.99 0.005 250);
 
   --border: oklch(0.9 0.01 250);
