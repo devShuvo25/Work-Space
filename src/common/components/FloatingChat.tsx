@@ -31,7 +31,7 @@ export default function FloatingChat() {
             {[1, 2, 3].map((i) => (
               <button 
                 key={i} 
-                className="w-full flex items-center gap-3 p-3 hover:bg-slate-50 rounded-2xl transition-colors text-left group"
+                className="w-full flex items-center gap-3 p-3 hover:bg-slate-50 rounded-md transition-colors text-left group"
               >
                 <div className="h-12 w-12 rounded-full bg-slate-100 border relative shrink-0">
                   <span className="absolute bottom-0 right-0 h-3 w-3 bg-[#1DBF73] border-2 border-white rounded-full" />

@@ -46,14 +46,14 @@ const ForgetPassword = () => {
                   type="email"
                   required
                   placeholder="name@example.com"
-                  className="block w-full pl-10 pr-3 py-4 bg-foreground/5 border border-transparent rounded-2xl text-sm placeholder-foreground/30 focus:outline-none focus:bg-background focus:ring-4 focus:ring-primary/10 transition-all font-medium"
+                  className="block w-full pl-10 pr-3 py-4 bg-foreground/5 border border-transparent rounded-md text-sm placeholder-foreground/30 focus:outline-none focus:bg-background focus:ring-4 focus:ring-primary/10 transition-all font-medium"
                 />
               </div>
             </div>
 
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-bold rounded-2xl text-white bg-primary hover:bg-secondary focus:outline-none focus:ring-4 focus:ring-primary/20 transition-all shadow-lg shadow-primary/20 active:scale-95"
+              className="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-bold rounded-md text-white bg-primary hover:bg-secondary focus:outline-none focus:ring-4 focus:ring-primary/20 transition-all shadow-lg shadow-primary/20 active:scale-95"
             >
               Send Reset Link
               <Send size={18} className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 translate-x-1 transition-all" />
@@ -63,7 +63,7 @@ const ForgetPassword = () => {
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mt-8 p-6 bg-primary/5 rounded-2xl border border-primary/10 text-center space-y-4"
+            className="mt-8 p-6 bg-primary/5 rounded-md border border-primary/10 text-center space-y-4"
           >
             <div className="text-primary font-bold">Check your inbox!</div>
             <p className="text-xs text-foreground/60 leading-relaxed">

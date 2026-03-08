@@ -3,20 +3,23 @@ import HeroSection from './Banner'
 import PopularServices from './PopularServices'
 import ValueProps from './Progress'
 import TrustSection from './Trust'
-import ScaleBento from './Scale'
-import GigExplorer from './popular'
-import JobExplorer from './popular'
-import JobCarousel from './popular'
+import CategorySection from './Category'
+import WhyChooseSection from './WhyChoose'
+import SuccessStory from './SuccessStory'
+import SkillsetSection from './Skills'
+
 
 export default function LandingPage() {
   return (
     <>
     <HeroSection/>
     <PopularServices/>
-    {/* <CategoryGrid/> */}
-    <JobCarousel/>
+    <CategorySection/>
     <ValueProps/>
+    <WhyChooseSection/>
+    <SuccessStory/>
     <TrustSection/>
+    <SkillsetSection/>
     {/* <ScaleBento/> */}
     </>
   )

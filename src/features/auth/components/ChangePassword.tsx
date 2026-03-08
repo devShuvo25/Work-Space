@@ -49,7 +49,7 @@ const ChangePassword = () => {
                   type={showPass ? 'text' : 'password'}
                   required
                   placeholder="••••••••"
-                  className="block w-full pl-10 pr-10 py-4 bg-foreground/5 border border-transparent rounded-2xl text-sm placeholder-foreground/30 focus:outline-none focus:bg-background focus:ring-4 focus:ring-primary/10 transition-all font-medium"
+                  className="block w-full pl-10 pr-10 py-4 bg-foreground/5 border border-transparent rounded-md text-sm placeholder-foreground/30 focus:outline-none focus:bg-background focus:ring-4 focus:ring-primary/10 transition-all font-medium"
                 />
                 <button 
                   type="button"
@@ -72,7 +72,7 @@ const ChangePassword = () => {
                   type={showConfirm ? 'text' : 'password'}
                   required
                   placeholder="••••••••"
-                  className="block w-full pl-10 pr-10 py-4 bg-foreground/5 border border-transparent rounded-2xl text-sm placeholder-foreground/30 focus:outline-none focus:bg-background focus:ring-4 focus:ring-primary/10 transition-all font-medium"
+                  className="block w-full pl-10 pr-10 py-4 bg-foreground/5 border border-transparent rounded-md text-sm placeholder-foreground/30 focus:outline-none focus:bg-background focus:ring-4 focus:ring-primary/10 transition-all font-medium"
                 />
                 <button 
                   type="button"
@@ -86,7 +86,7 @@ const ChangePassword = () => {
           </div>
 
           {/* Password Requirements */}
-          <div className="p-4 bg-foreground/5 rounded-2xl space-y-2">
+          <div className="p-4 bg-foreground/5 rounded-md space-y-2">
             <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-1">Requirements</p>
             <div className="flex items-center gap-2 text-xs font-medium text-foreground/60">
               <CheckCircle2 size={14} className="text-primary" />
@@ -100,7 +100,7 @@ const ChangePassword = () => {
 
           <button
             type="submit"
-            className="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-bold rounded-2xl text-white bg-primary hover:bg-secondary focus:outline-none focus:ring-4 focus:ring-primary/20 transition-all shadow-lg shadow-primary/20 active:scale-95"
+            className="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-bold rounded-md text-white bg-primary hover:bg-secondary focus:outline-none focus:ring-4 focus:ring-primary/20 transition-all shadow-lg shadow-primary/20 active:scale-95"
           >
             Update Password
             <ShieldCheck size={18} className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 translate-x-1 transition-all" />

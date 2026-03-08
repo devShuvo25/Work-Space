@@ -47,7 +47,7 @@ export default function JobFilterHeader() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search for your next big project..." 
-              className="w-full h-12 pl-11 pr-11 bg-slate-50 border-none rounded-xl text-sm outline-none focus:ring-2 focus:ring-[#1DBF73]/20 transition-all"
+              className="w-full h-12 pl-11 pr-11 bg-slate-50 border-none rounded-md text-sm outline-none focus:ring-2 focus:ring-[#1DBF73]/20 transition-all"
             />
             {searchQuery && (
               <button 
@@ -64,16 +64,16 @@ export default function JobFilterHeader() {
             
             {/* 1. Category Filter */}
             <DropdownMenu.Root>
-              <DropdownMenu.Trigger className="flex h-12 shrink-0 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-medium text-slate-700 outline-none hover:bg-slate-50 transition-colors">
+              <DropdownMenu.Trigger className="flex h-12 shrink-0 items-center justify-center gap-2 rounded-md border border-slate-200 bg-white px-4 text-sm font-medium text-slate-700 outline-none hover:bg-slate-50 transition-colors">
                 <LayoutGrid className="h-4 w-4 text-slate-400" />
                 <span className="truncate max-w-[80px]">{activeCategory}</span>
                 <ChevronDown className="h-3 w-3 opacity-50" />
               </DropdownMenu.Trigger>
               <DropdownMenu.Portal>
-                <DropdownMenu.Content align="end" sideOffset={8} className="z-[100] min-w-[200px] rounded-xl border border-slate-100 bg-white p-1 shadow-xl animate-in fade-in zoom-in-95">
+                <DropdownMenu.Content align="end" sideOffset={8} className="z-[100] min-w-[200px] rounded-md border border-slate-100 bg-white p-1 shadow-xl animate-in fade-in zoom-in-95">
                   <DropdownMenu.RadioGroup value={activeCategory} onValueChange={setActiveCategory}>
                     {CATEGORIES.map((cat) => (
-                      <DropdownMenu.RadioItem key={cat} value={cat} className="flex cursor-pointer items-center rounded-lg px-3 py-2 text-xs font-medium text-slate-600 outline-none hover:bg-[#1DBF73]/5 hover:text-[#1DBF73]">
+                      <DropdownMenu.RadioItem key={cat} value={cat} className="flex cursor-pointer items-center rounded-md px-3 py-2 text-xs font-medium text-slate-600 outline-none hover:bg-[#1DBF73]/5 hover:text-[#1DBF73]">
                         {cat}
                       </DropdownMenu.RadioItem>
                     ))}
@@ -84,16 +84,16 @@ export default function JobFilterHeader() {
 
             {/* 2. Posted Time Filter */}
             <DropdownMenu.Root>
-              <DropdownMenu.Trigger className="flex h-12 shrink-0 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-medium text-slate-700 outline-none hover:bg-slate-50 transition-colors">
+              <DropdownMenu.Trigger className="flex h-12 shrink-0 items-center justify-center gap-2 rounded-md border border-slate-200 bg-white px-4 text-sm font-medium text-slate-700 outline-none hover:bg-slate-50 transition-colors">
                 <History className="h-4 w-4 text-slate-400" />
                 <span className="truncate max-w-[80px]">{postedTime}</span>
                 <ChevronDown className="h-3 w-3 opacity-50" />
               </DropdownMenu.Trigger>
               <DropdownMenu.Portal>
-                <DropdownMenu.Content align="end" sideOffset={8} className="z-[100] min-w-[180px] rounded-xl border border-slate-100 bg-white p-1 shadow-xl">
+                <DropdownMenu.Content align="end" sideOffset={8} className="z-[100] min-w-[180px] rounded-md border border-slate-100 bg-white p-1 shadow-xl">
                   <DropdownMenu.RadioGroup value={postedTime} onValueChange={setPostedTime}>
                     {POSTED_TIMES.map((time) => (
-                      <DropdownMenu.RadioItem key={time} value={time} className="flex cursor-pointer items-center rounded-lg px-3 py-2 text-xs font-medium text-slate-600 outline-none hover:bg-slate-50">
+                      <DropdownMenu.RadioItem key={time} value={time} className="flex cursor-pointer items-center rounded-md px-3 py-2 text-xs font-medium text-slate-600 outline-none hover:bg-slate-50">
                         {time}
                       </DropdownMenu.RadioItem>
                     ))}
@@ -104,13 +104,13 @@ export default function JobFilterHeader() {
 
             {/* 3. Budget Filter */}
             <DropdownMenu.Root>
-              <DropdownMenu.Trigger className="flex h-12 shrink-0 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-medium text-slate-700 outline-none hover:bg-slate-50 transition-colors">
+              <DropdownMenu.Trigger className="flex h-12 shrink-0 items-center justify-center gap-2 rounded-md border border-slate-200 bg-white px-4 text-sm font-medium text-slate-700 outline-none hover:bg-slate-50 transition-colors">
                 <DollarSign className="h-4 w-4 text-slate-400" />
                 <span className="truncate max-w-[80px]">{budget}</span>
                 <ChevronDown className="h-3 w-3 opacity-50" />
               </DropdownMenu.Trigger>
               <DropdownMenu.Portal>
-                <DropdownMenu.Content align="end" sideOffset={8} className="z-[100] min-w-[180px] rounded-xl border border-slate-100 bg-white p-1 shadow-xl">
+                <DropdownMenu.Content align="end" sideOffset={8} className="z-[100] min-w-[180px] rounded-md border border-slate-100 bg-white p-1 shadow-xl">
                   <DropdownMenu.RadioGroup value={budget} onValueChange={setBudget}>
                     {BUDGET_RANGES.map((range) => (
                       <DropdownMenu.RadioItem key={range} value={range} className="flex cursor-pointer items-center rounded-lg px-3 py-2 text-xs font-medium text-slate-600 outline-none hover:bg-slate-50">
@@ -122,9 +122,7 @@ export default function JobFilterHeader() {
               </DropdownMenu.Portal>
             </DropdownMenu.Root>
 
-            <button className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-900 text-white hover:bg-slate-800 transition-colors outline-none">
-              <SlidersHorizontal className="h-4 w-4" />
-            </button>
+            
           </div>
         </div>
 

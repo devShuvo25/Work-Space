@@ -70,7 +70,7 @@ const LoginPage = () => {
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="max-w-sm w-full bg-white p-8 rounded-2xl border border-slate-100 shadow-sm"
+        className="max-w-sm w-full bg-white p-8 rounded-md border border-slate-100 shadow-sm"
       >
         {/* Unified Compact Header */}
         <div className="flex items-center gap-3 mb-8">
