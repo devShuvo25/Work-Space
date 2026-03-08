@@ -95,7 +95,7 @@ export default function ScaleBento() {
               <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
               
               <div className="flex justify-between items-start">
-                <div className={`p-3 rounded-2xl bg-white/10 backdrop-blur-md ${item.iconColor}`}>
+                <div className={`p-3 rounded-md bg-white/10 backdrop-blur-md ${item.iconColor}`}>
                   <item.icon size={24} />
                 </div>
                 <span className="text-xs font-bold uppercase tracking-widest opacity-60">

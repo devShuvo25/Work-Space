@@ -27,7 +27,6 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "Find Work", href: "/jobs" },
   { name: "Find Freelancers", href: "/freelancers" },
-  { name: "How it Works", href: "/how-it-works" },
 ]
 
 // Bottom Bar Items
@@ -54,7 +53,9 @@ export default function Navbar() {
               Work Space
             </Link>
 
-            <div className="hidden md:flex items-center gap-8">
+          </div>
+          {/* Nav links */}
+          <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href
                 return (
@@ -77,7 +78,6 @@ export default function Navbar() {
                 )
               })}
             </div>
-          </div>
 
           {/* --- Right Side: Actions & Avatar --- */}
           <div className="flex items-center gap-3">

@@ -26,6 +26,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 import JobFilterHeader from "./JobFilterHeader";
 import JobCard from "./JobCard";
+import JobSidebar from "./JobAsidebar";
 
 const JOBS_DATA = [
   {
@@ -153,65 +154,7 @@ export default function JobPage() {
             </div>
           </div>
 
-          {/* --- Right Side: Sidebar --- */}
-          <aside className="w-full lg:w-[320px] space-y-6 lg:sticky lg:top-36">
-            {/* Profile Health Card */}
-            <Card className="border-slate-200 shadow-sm overflow-hidden bg-white rounded-2xl">
-              <CardContent className="p-5">
-                <div className="flex items-center gap-4 mb-5">
-                  <div className="relative">
-                    <Avatar className="h-12 w-12 ring-2 ring-slate-50">
-                      <AvatarImage src="https://github.com/shuvo-mallik.png" />
-                      <AvatarFallback>SM</AvatarFallback>
-                    </Avatar>
-                    <div className="absolute -bottom-0.5 -right-0.5 bg-white rounded-full p-0.5 shadow-sm">
-                      <CheckCircle2 className="h-4 w-4 text-[#1DBF73] fill-white" />
-                    </div>
-                  </div>
-                  <div>
-                    <h2 className="text-sm font-bold text-slate-900">
-                      Shuvo Mallik
-                    </h2>
-                    <p className="text-[10px] text-[#1DBF73] font-black uppercase tracking-wider">
-                      Top Rated
-                    </p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex justify-between text-[10px] font-black uppercase tracking-widest">
-                    <span className="text-slate-400">Score</span>
-                    <span className="text-[#1DBF73]">85%</span>
-                  </div>
-                  <Progress value={85} className="h-1.5 bg-slate-100" />
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Stats Card */}
-            <Card className="border-slate-200 shadow-sm bg-white rounded-2xl overflow-hidden">
-              <div className="px-5 py-4 bg-slate-50/50 border-b border-slate-100">
-                <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 flex items-center gap-2">
-                  <TrendingUp className="h-3 w-3 text-blue-500" /> Stats
-                </h3>
-              </div>
-              <div className="divide-y divide-slate-50">
-                <div className="flex justify-between items-center p-5">
-                  <span className="text-[11px] font-bold text-slate-500">
-                    Active Proposals
-                  </span>
-                  <span className="text-sm font-black text-slate-900 underline decoration-[#1DBF73] decoration-2 underline-offset-4">
-                    12
-                  </span>
-                </div>
-                <div className="flex justify-between items-center p-5">
-                  <span className="text-[11px] font-bold text-slate-500">
-                    Available Connects
-                  </span>
-                  <span className="text-sm font-black text-slate-900">48</span>
-                </div>
-              </div>
-            </Card>
-          </aside>
+          <JobSidebar/>
         </div>
       </main>
     </div>
